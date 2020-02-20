@@ -16,6 +16,7 @@ router.get('/api/champ/:id', (req, res) => {
     res.send({ champ })
   })  
 })
+
 // POST /api/champ
 router.post('/api/champ/new', (req, res) => {
   Champ.create(req.body)
@@ -23,10 +24,17 @@ router.post('/api/champ/new', (req, res) => {
       res.send(champ)
     })
 })
+
 // PUT
-router.put('/api/champ/update', (req, res) => {
-  return res.send(
-  );
+router.put('/api/champ/:id', (req, res) => {
+  const filter = { _id: req.params.id }
+  const update = req.body 
+  Champ.findOneAndUpdate(filter, update, {
+    new: true
+  })
+  .then(function(champ) {
+    return res.send(champ)
+  })
 });
 
 module.exports = router;
