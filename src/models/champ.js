@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 // TODO: Replace this with actual model
 
-const ThingSchema = new Schema({
+const ChampSchema = new Schema({
   name: { type: String }
 })
 
-Thing = mongoose.model('Thing', ThingSchema);
+Champ = mongoose.model('Champ', ChampSchema);
 
-module.exports = Thing;
+module.exports = Champ;

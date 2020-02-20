@@ -1,13 +1,14 @@
 const express = require('express');
-const thingRoutes = require('./thing.js');
+const champRoutes = require('./champ.js');
 const authRoutes = require('./auth.js');
+const testRoutes = require('./test.js');
 
 const router = express.Router(); // eslint-disable-line new-cap
 
-// TODO: Change to your model.
-
-router.use('/thing', thingRoutes);
+router.use('/champ', champRoutes);
 
 router.use('/auth', authRoutes);
+
+router.use('/index', testRoutes);
 
 module.exports = router;

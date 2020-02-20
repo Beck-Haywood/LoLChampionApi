@@ -4,7 +4,7 @@ const util = require('util');
 require('dotenv').config();
 
 const app = require('./config/express');
-const router = require('./controllers/thing.js');
+const router = require('./controllers/champ.js');
 
 mongoose.Promise = Promise;
 
@@ -27,7 +27,7 @@ app.use(router);
 // src: https://github.com/mochajs/mocha/issues/1912
 if (!module.parent) {
   // listen on port config.port
-  app.listen(process.env.PORT, () => {
+  app.listen((process.env.PORT || 3000), () => {
     console.info(`server started on port ${process.env.PORT} (${process.env.NODE_ENV})`); // eslint-disable-line no-console
   });
 }
