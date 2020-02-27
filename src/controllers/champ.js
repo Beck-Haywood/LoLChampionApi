@@ -25,13 +25,20 @@ router.post('/api/champ/new', (req, res) => {
     })
 })
 
-// PUT
+// PUT by ID
 router.put('/api/champ/:id', (req, res) => {
   const filter = { _id: req.params.id }
   const update = req.body 
   Champ.findOneAndUpdate(filter, update, {
     new: true
   })
+  .then(function(champ) {
+    return res.send(champ)
+  })
+});
+//DELETE by ID
+router.delete('/api/champ/:id', (req, res) => {
+  Champ.findByIdAndRemove(req.params.id)
   .then(function(champ) {
     return res.send(champ)
   })
