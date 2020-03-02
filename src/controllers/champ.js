@@ -28,30 +28,33 @@ router.post('/api/champ/new', (req, res) => {
   } else {
     return res.status(401); // UNAUTHORIZED
   }
-//   Champ.create(req.body)
-//     .then(function(champ) {
-//       res.send(champ)
-//     })
 })
 
 // PUT by ID
 router.put('/api/champ/:id', (req, res) => {
-  const filter = { _id: req.params.id }
-  const update = req.body 
-  Champ.findOneAndUpdate(filter, update, {
-    new: true
-  })
-  .then(function(champ) {
-    return res.send(champ)
-  })
+  if (req.user) {
+    const filter = { _id: req.params.id }
+    const update = req.body 
+    Champ.findOneAndUpdate(filter, update, {
+      new: true
+    })
+    .then(function(champ) {
+      return res.send(champ)
+    })
+  } else {
+    return res.status(401); // UNAUTHORIZED
+  }
 });
 //DELETE by ID
 router.delete('/api/champ/:id', (req, res) => {
-
-  Champ.findByIdAndRemove(req.params.id)
-  .then(function(champ) {
-    return res.send(champ)
-  })
+  if (req.user) {
+    Champ.findByIdAndRemove(req.params.id)
+    .then(function(champ) {
+      return res.send(champ)
+    })
+  } else {
+    return res.status(401); // UNAUTHORIZED
+  } 
 });
 
 module.exports = router;
