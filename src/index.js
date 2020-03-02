@@ -5,8 +5,12 @@ require('dotenv').config();
 
 const app = require('./config/express');
 const router = require('./controllers/champ.js');
+const router2 = require('./controllers/user.js');
+const checkUser = require('./utils/checkUser.js')
+
 
 mongoose.Promise = Promise;
+
 
 // connect to mongo db
 const mongoUri = process.env.MONGO_HOST;
@@ -19,9 +23,11 @@ mongoose.connection.on('error', () => {
 });
 
 // # TODO: Any additional config changes belong here.
+app.use(checkUser)
 
 // Routes
 app.use(router);
+app.use(router2);
 
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912

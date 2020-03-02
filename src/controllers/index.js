@@ -1,6 +1,6 @@
 const express = require('express');
 const champRoutes = require('./champ.js');
-const authRoutes = require('./auth.js');
+const authRoutes = require('./user.js');
 const testRoutes = require('./test.js');
 
 const router = express.Router(); // eslint-disable-line new-cap

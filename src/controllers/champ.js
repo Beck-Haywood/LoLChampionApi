@@ -2,6 +2,7 @@ const express = require('express')
 
 const Champ = require('../models/champ.js')
 
+
 const router = express.Router(); // eslint-disable-line new-cap
 
 // GET /api/champ
@@ -19,10 +20,18 @@ router.get('/api/champ/:id', (req, res) => {
 
 // POST /api/champ
 router.post('/api/champ/new', (req, res) => {
-  Champ.create(req.body)
+  if (req.user) {
+    Champ.create(req.body)
     .then(function(champ) {
-      res.send(champ)
+      return res.send(champ)
     })
+  } else {
+    return res.status(401); // UNAUTHORIZED
+  }
+//   Champ.create(req.body)
+//     .then(function(champ) {
+//       res.send(champ)
+//     })
 })
 
 // PUT by ID
@@ -38,6 +47,7 @@ router.put('/api/champ/:id', (req, res) => {
 });
 //DELETE by ID
 router.delete('/api/champ/:id', (req, res) => {
+
   Champ.findByIdAndRemove(req.params.id)
   .then(function(champ) {
     return res.send(champ)
