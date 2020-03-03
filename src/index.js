@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const util = require('util');
+const port = process.env.PORT
 
 require('dotenv').config();
 
@@ -33,7 +34,7 @@ app.use(router2);
 // src: https://github.com/mochajs/mocha/issues/1912
 if (!module.parent) {
   // listen on port config.port
-  app.listen((process.env.PORT || 3000), () => {
+  app.listen((process.env.PORT || port), () => {
     console.info(`server started on port ${process.env.PORT} (${process.env.NODE_ENV})`); // eslint-disable-line no-console
   });
 }
