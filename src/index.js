@@ -14,7 +14,7 @@ mongoose.Promise = Promise;
 
 
 // connect to mongo db
-const mongoUri = process.env.MONGO_HOST;
+const mongoUri = process.env.MONGODB_URI;
 mongoose.connect(
   mongoUri,
   { server: { socketOptions: { keepAlive: 1 } } }
