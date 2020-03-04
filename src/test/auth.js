@@ -13,7 +13,7 @@ describe("User", function() {
   it("should not be able to login if they have not registered", function(done) {
     agent
       .post("/login")
-      .send({ username: "wrong username", password: "password" })
+      .send({ username: "username", password: "password" })
       .end(function(err, res) {
         res.should.have.status(401);
         agent.should.not.have.cookie("pToken");
@@ -21,8 +21,8 @@ describe("User", function() {
       });
   });
 
-  // Signup
-  it("should be able to signup", function(done) {
+  // Sign up
+  it("Should be able to signup using post", function(done) {
     User.findOneAndRemove({ username: "testone" }, function() {
       agent
         .post("/signup")
@@ -35,8 +35,8 @@ describe("User", function() {
     });
   });
 
-  // login
-  it("should be able to login", function(done) {
+  // Login
+  it("Should be able to login using post", function(done) {
     agent
       .post("/login")
       .send({ username: "testone", password: "password" })
@@ -47,8 +47,8 @@ describe("User", function() {
       });
   });
 
-  // logout
-  it("should be able to logut", function(done) {
+  // Logout
+  it("Should be able to logut using get", function(done) {
     agent.get('/logout').end(function(err, res) {
       res.should.have.status(200);
       agent.should.not.have.cookie("nToken");

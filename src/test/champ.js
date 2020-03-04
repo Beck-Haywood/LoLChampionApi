@@ -30,7 +30,7 @@ describe('## Champ APIs', () => {
     expect(true).to.be.true;
   });
 
-  it('should load homepage', () => {
+  it('should get 200 for api call', () => {
     chai.request(app)
       .get('/api/champ/')
       .end((err, res) => {
@@ -42,14 +42,35 @@ describe('## Champ APIs', () => {
       })
   })
 });
-// In this test it's expected a task list of two tasks
+describe('## Champ APIs', () => {
+  // TODO: Implement more tests.
+  it("checks equality", function() {
+    expect(true).to.be.true;
+  });
+
+  it('should load id route', () => {
+    chai.request(app)
+      .get('/api/champ/id')
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.status.should.be.equal(200);
+        return done();
+      })
+  })
+});
+// In this test it's expected a empty list of two tasks
 describe('GET /api/champ', function() {
   it('returns a list of champs', function(done) {
-      request.get('/api/champ')
-          .expect(200)
-          .end(function(err, res) {
-              expect(res.body).to.have.lengthOf(3);
-              done(err);
-          });
+    chai.request(app)
+      .get('/api/champ')
+        // .expect(200)
+        .end(function(err, res) {
+            expect(res.body.champs).to.be.assert(Array);
+            // console.log(res.body)
+            // expect(res.body).should.have.property('champs');
+            done(err);
+        });
   });
 });
