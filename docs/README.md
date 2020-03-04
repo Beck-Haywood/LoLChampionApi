@@ -131,7 +131,9 @@ Key:        Value:
 name        Tryndamere 
 title       The Barbarian King
 health:     625.64 – 2291.64
+token:      asd38a7sd68aASDdasdas7987a8sADEsd6a8s   
 </pre>
+Remember token is <strong>REQUIRED</strong> to prove your authentication
 
 Example output:
 
@@ -159,7 +161,9 @@ Change one to all of the keys!
 
 Key:        Value: 
 health:     625.64 – 1000000.64
+token:      asd38a7sd68aASDdasdas7987a8sADEsd6a8s   
 </pre>
+Remember token is <strong>REQUIRED</strong> to prove your authentication
 
 Example output:
 > https://lolchampionapi.herokuapp.com/api/champ/5e4dd579787a613581957ff4
@@ -182,7 +186,17 @@ Delete request to:
 
 > https://lolchampionapi.herokuapp.com/api/champ/id:
 
+Example input:
+
+<pre>
+Key:        Value: 
+token:      asd38a7sd68aASDdasdas7987a8sADEsd6a8s   
+</pre>
+
+Remember token is <strong>REQUIRED</strong> to prove your authentication
+
 Example output:
+
 > https://lolchampionapi.herokuapp.com/api/champ/5e4dd579787a613581957ff4
 ```
 {
