@@ -101,7 +101,7 @@ Example output:
 }
 ```
 
-## Get champion by ID(COMING SOON, new scraped data doesnt have IDS)
+## Get champion by ID
 
 > https://lolchampionapi.herokuapp.com/api/champ/id:
 
@@ -149,7 +149,7 @@ Example output:
     }
 }
 ```
-## Put by ID (Update)(COMING SOON, new scraped data doesnt have IDS)
+## Put by ID (Update)
 
 Put request to:
 
@@ -180,7 +180,7 @@ Example output:
 }
 ```
 
-## Delete by ID(COMING SOON, new scraped data doesnt have IDS)
+## Delete by ID
 
 Delete request to:
 
