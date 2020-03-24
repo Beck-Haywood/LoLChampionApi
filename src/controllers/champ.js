@@ -12,6 +12,7 @@ router.get('/api/champ', (req, res) => {
     let jsn = {}
     for (champ of champs) {
       jsn[champ.name] = {
+        id: champ._id,
         title: champ.title,
         icon: champ.icon,
         roles: champ.roles,
@@ -45,7 +46,36 @@ router.get('/api/champ', (req, res) => {
 // GET by ID
 router.get('/api/champ/:id', (req, res) => {
   Champ.findById(req.params.id, (err, champ) => {
-    res.send({ champ })
+    let jsn = {}
+    jsn[champ.name] = {
+      id: champ._id,
+      title: champ.title,
+      icon: champ.icon,
+      roles: champ.roles,
+      resource_bar: champ.resource_bar,
+      aa_type: champ.aa_type,
+      adaptive_type: champ.adaptive_type,
+      price_be: champ.price_be,
+      price_rp: champ.price_rp,
+      release_date: champ.release_date,
+      last_changed: champ.last_changed,
+      starting_health: champ.starting_health,
+      starting_health_regen: champ.starting_health_regen,
+      starting_armor: champ.starting_armor,
+      starting_magic_resist: champ.starting_magic_resist,
+      starting_attack_damage: champ.starting_attack_damage,
+      movementspeed: champ.movementspeed,
+      attack_range: champ.attack_range,
+      base_attack_speed: champ.base_attack_speed,
+      attack_speed_ratio: champ.attack_speed_ratio,
+      attack_windup: champ.attack_windup,
+      attack_speed_bonus: champ.attack_speed_bonus,
+      gameplay_radius: champ.gameplay_radius,
+      pathing_radius: champ.pathing_radius,
+      selection_radius: champ.selection_radius,
+      auto_attack_radius: champ.auto_attack_radius
+    }
+    return res.send(jsn)
   })  
 })
 
@@ -61,6 +91,7 @@ router.post('/api/champ/new', (req, res) => {
           .then(champ=> {
             let jsn = {}
             jsn[champ.name] = {
+              id: champ._id,
               title: champ.title,
               icon: champ.icon,
               roles: champ.roles,
@@ -107,7 +138,36 @@ router.put('/api/champ/:id', (req, res) => {
       new: true
     })
     .then(function(champ) {
-      return res.send(champ)
+      let jsn = {}
+      jsn[champ.name] = {
+        id: champ._id,
+        title: champ.title,
+        icon: champ.icon,
+        roles: champ.roles,
+        resource_bar: champ.resource_bar,
+        aa_type: champ.aa_type,
+        adaptive_type: champ.adaptive_type,
+        price_be: champ.price_be,
+        price_rp: champ.price_rp,
+        release_date: champ.release_date,
+        last_changed: champ.last_changed,
+        starting_health: champ.starting_health,
+        starting_health_regen: champ.starting_health_regen,
+        starting_armor: champ.starting_armor,
+        starting_magic_resist: champ.starting_magic_resist,
+        starting_attack_damage: champ.starting_attack_damage,
+        movementspeed: champ.movementspeed,
+        attack_range: champ.attack_range,
+        base_attack_speed: champ.base_attack_speed,
+        attack_speed_ratio: champ.attack_speed_ratio,
+        attack_windup: champ.attack_windup,
+        attack_speed_bonus: champ.attack_speed_bonus,
+        gameplay_radius: champ.gameplay_radius,
+        pathing_radius: champ.pathing_radius,
+        selection_radius: champ.selection_radius,
+        auto_attack_radius: champ.auto_attack_radius
+      }
+      return res.send(jsn)
     })
   } else {
     return res.status(401); // UNAUTHORIZED
@@ -118,7 +178,36 @@ router.delete('/api/champ/:id', (req, res) => {
   if (req.user) {
     Champ.findByIdAndRemove(req.params.id)
     .then(function(champ) {
-      return res.send(champ)
+      let jsn = {}
+      jsn[champ.name] = {
+        id: champ._id,
+        title: champ.title,
+        icon: champ.icon,
+        roles: champ.roles,
+        resource_bar: champ.resource_bar,
+        aa_type: champ.aa_type,
+        adaptive_type: champ.adaptive_type,
+        price_be: champ.price_be,
+        price_rp: champ.price_rp,
+        release_date: champ.release_date,
+        last_changed: champ.last_changed,
+        starting_health: champ.starting_health,
+        starting_health_regen: champ.starting_health_regen,
+        starting_armor: champ.starting_armor,
+        starting_magic_resist: champ.starting_magic_resist,
+        starting_attack_damage: champ.starting_attack_damage,
+        movementspeed: champ.movementspeed,
+        attack_range: champ.attack_range,
+        base_attack_speed: champ.base_attack_speed,
+        attack_speed_ratio: champ.attack_speed_ratio,
+        attack_windup: champ.attack_windup,
+        attack_speed_bonus: champ.attack_speed_bonus,
+        gameplay_radius: champ.gameplay_radius,
+        pathing_radius: champ.pathing_radius,
+        selection_radius: champ.selection_radius,
+        auto_attack_radius: champ.auto_attack_radius
+      }
+      return res.send(jsn)
     })
   } else {
     return res.status(401); // UNAUTHORIZED
