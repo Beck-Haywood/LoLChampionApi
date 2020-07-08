@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  app:
+    build: 
+        context: .
+        dockerfile: Dockerfile
+    container_name: nodejs
+    image: nodejs
+    restart: unless-stopped
+    build: .
+    env_file: .env
+    ports:
+      - "4040:4040"
+    links:
+      - mongo
+    depends_on: 
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "27017:27017"
