@@ -9,7 +9,13 @@ A Dockerized league of legends champion data API
   - [2️⃣ **Presentation**: Due 7/15 @ 11:59pm](#2️⃣-presentation-due-715--1159pm)
   - [3️⃣ **Blog Post**: Due 7/15 @ 11:59pm](#3️⃣-blog-post-due-715--1159pm)
   - [4️⃣ **Repository**: Due 7/15 @ 11:59pm](#4️⃣-repository-due-715--1159pm)
-
+## How to run locally!
+- 1st Clone the repo
+- 2nd run docker-compose up
+### How to access the api
+- <a src="https://beck-haywood.github.io/LoLChampionApi/#/">Documentation<a>
+- Instead of using the heroku url use, send a get request to http://localhost:4040/api/champ/ for running docker-compose up locally
+- Or if you want to run the live deployed version send the get request to http://champion-api.dev.beck-haywood.online/api/champ
 ## ⭐️ Project Goals
 
 | Goal | Description |
