@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/website?url=http%3A%2F%2Fchampion-api.dev.beck-haywood.online%2Fapi%2Fchamp">
+<img src="https://img.shields.io/docker/image-size/40699781/league_champion_api">
 # 🐳 Final Project: Dockerize a Codebase
 
 A Dockerized league of legends champion data API
@@ -13,9 +15,10 @@ A Dockerized league of legends champion data API
 - 1st Clone the repo
 - 2nd run docker-compose up
 ### How to access the api
-- <a src="https://beck-haywood.github.io/LoLChampionApi/#/">Documentation<a>
+- <a href="https://beck-haywood.github.io/LoLChampionApi/#/">Documentation<a>
 - Instead of using the heroku url use, send a get request to http://localhost:4040/api/champ/ for running docker-compose up locally
 - Or if you want to run the live deployed version send the get request to http://champion-api.dev.beck-haywood.online/api/champ
+- Check if its up here 
 ## ⭐️ Project Goals
 
 | Goal | Description |
