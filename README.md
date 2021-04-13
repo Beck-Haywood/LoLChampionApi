@@ -5,6 +5,11 @@ A Dockerized league of legends champion data API, The API consists of CRUD and A
 Written in Javascript, using NodeJS and Docker.
 
 ## How to run locally!
---Clone the repo
-run 
-```docker-compose up```
+Clone the repo
+```bash
+git clone https://github.com/Beck-Haywood/LoLChampionApi.git
+```
+Then run
+```bash
+docker-compose up
+```
